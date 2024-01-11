@@ -12,8 +12,8 @@ rownames(manifest) <- manifest$IlmnID
 data <- fread("../GSE87053/GSE87053_b.csv", data.table = F, header = T)
 rownames(data) <- data$V1
 data$V1 <- NULL
-data.mat <- as.matrix(data)
-rownames(data.mat) <- rownames(data)
+sample_names <- colnames(data)
+remove(data)
 
 ## gets the phenotype of samples
 gse <- getGEO(filename="../GSE87053/GSE87053_series_matrix.txt.gz", getGPL = F)
